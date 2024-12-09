@@ -5,9 +5,7 @@ def crear_baraja():
     for valor in ("1", "2", "3", "4", "5", "6", "7", "10", "11", "12")
     for palo in ("Oro", "Espada", "Copa", "Basto")}
 #genera una baraja como un set de tuplas recorriendo cada una de las posibles combinaciones entre los valores y el palo
-
-puntajes={"jugador":0, "maquina":0}
-def jugar_ronda(baraja:set):
+def jugar_ronda(baraja:set, puntajes:dict):
     print("\n Nueva Ronda")
     carta_jugador = sacar_carta(baraja)
     carta_maquina = sacar_carta(baraja)
@@ -38,7 +36,7 @@ def main():
             print("La baraja se ha agotado. Reiniciando")
             baraja = crear_baraja()
 # Si la baraja está vacía, se reinicia
-        reiniciar = jugar_ronda(baraja)
+        reiniciar = jugar_ronda(baraja,puntajes)
         if reiniciar:
             print("Alguien sacó el 1 de Oro. La baraja se reinicia.")
             baraja = crear_baraja()
@@ -48,8 +46,10 @@ def main():
             break
 
     print(f"Puntajes finales: Jugador {puntajes['jugador']} - Máquina {puntajes['maquina']}. Gracias por jugar")
+    guardar_puntajes(nombre_archivo, puntajes)
 #funcion principal del juego
 main()
+
 
 #Chequear cuando se usa cada tipo de dato
 #agregar funciones que reciben funciones

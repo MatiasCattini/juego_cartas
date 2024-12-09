@@ -20,6 +20,6 @@ def cargar_puntajes(nombre_archivo: str) -> dict:
     return {"jugador": 0, "maquina": 0}
 #Carga los puntajes desde un archivo de texto o inicializa en 0 si no existe.
 def guardar_puntajes(nombre_archivo: str, puntajes: dict) -> None:
-    with open(nombre_archivo, "w") as archivo:
-        archivo.write(str(puntajes))
-#Guarda los puntajes en un archivo de texto.
+    with open(nombre_archivo, "w") as archivo: 
+        archivo.write(str(puntajes)) 
+#guarda los puntajes obtenidos
